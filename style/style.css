@@ -1,0 +1,302 @@
+* {
+    margin: 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Montserrat;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    background-color: white;
+    justify-content: space-around;
+    height: 80px;
+    align-items: center;
+    color: #000;
+}
+
+nav img {
+    width: 60%;
+    padding-top: 20px;
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 30%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 0.9em;
+}
+
+nav ul li a:hover {
+    color: white;
+}
+
+/* Hamburger menu  */
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 50px;
+    height: 26px;
+    left: -11px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #000;
+    border-radius: 3px;
+    transition: all 0.5s;
+}
+
+/* hamburger menu animation */
+.menu-toggle span:nth-child(2) {
+    transform-origin: 0 0;
+}
+.menu-toggle span:nth-child(4) {
+    transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+    background-color: white;
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+.menu-toggle input:checked ~ span:nth-child(3) {
+    transform: scale(0);
+    opacity: 0;
+}
+.menu-toggle input:checked ~ span:nth-child(4) {
+    transform: rotate(-45deg) translate(-1px, 0);
+    background-color: white;
+}
+
+/* Hero section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Style for the hero text */
+.hero-text {
+    flex: 1;
+    max-width: 50%;
+    padding: 20px;
+    padding-left: 100px;
+}
+
+.hero-text h1 {
+    font-size: 50px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-text p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Style for the aside image */
+.hero aside {
+    float: right;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.hero aside img {
+    max-width: 90%;
+    height: auto;
+}
+
+
+/* section fitur */
+.fitur {
+    padding: 100px 130px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 67px;
+}
+
+.fitur .text{
+    display: flex;
+    /* flex: 1; */
+    flex-direction: column;
+    gap: 15px;
+    
+}
+
+.text img {
+    max-width: 15%;
+    height: auto;
+}
+
+.text h2 {
+    font-weight: 700;
+}
+
+.text h3 {
+    font-weight: 600;
+}
+
+.macam {
+    gap: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.macam .bmi {
+    padding: 30px;
+    border-radius: 25px;
+    background: linear-gradient(223deg, #DBDCE0 0%, #FFF 98.88%);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: space-between;
+    max-width: 50%;
+}
+
+.bmi img{
+    max-width: 30%;
+    height: auto;
+}
+
+.bmi .link{
+    font-size: 15px;
+    color: aqua;
+}
+
+.bmi a {
+    text-decoration: none;
+}
+
+   
+/* Responsive Breakpoint */
+/* ukuran tablet */
+@media screen and (max-width : 868px){ 
+    nav ul {
+        width: 50%;
+    }
+
+    /* nav ul li  a {
+        font-size: 0.7rem;
+    } */
+
+    .hero {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 50px;
+    }
+    
+    .hero-text, aside {
+        max-width: 100%;
+        text-align: center;
+    }
+    
+    .hero-text {
+        padding: 20px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+    
+    aside {
+        padding: 20px 0;
+    }
+
+    .fitur {
+        flex-direction: column;
+        /* align-items: center; */
+        padding: 80px 50px;
+    }
+
+    .fitur .text {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ukuran mobile */
+@media screen and (max-width : 576px){ 
+    nav ul {
+        position : absolute;
+        top : 0;
+        height: 100vh;
+        right : 0;
+        width: 80%;
+        flex-direction: column;
+        background-color: salmon;
+        align-items: center;
+        justify-content: space-evenly;
+        z-index: 2;
+        transform: translateX(100%);
+        transition: all 1s;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav ul.slide{
+        transform: translateX(0);
+    }
+
+    .hero-text h1 {
+        font-size: 30px;
+    }
+    
+    .hero-text p, .fitur .text p {
+        font-size: 14px;
+    }
+
+    .fitur .text h3 {
+        font-size: 18px;
+    }
+
+    .fitur .text h2 {
+        font-size: 25px;
+    }
+
+    
+
+    .macam {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .macam .bmi {
+        max-width: 90%;
+    }
+}
